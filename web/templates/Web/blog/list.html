@@ -1,0 +1,19 @@
+{% extends 'web/base.html' %}
+
+{% block title %}Blog{% endblock %}
+
+{% block content %}
+    <div class="cyber-container">
+        <h1 class="neon-text">Blog <span class="text-pink">//</span></h1>
+        
+        {% for post in posts %}
+        <div class="card-cyber mb-4">
+            <div class="card-body">
+                <h2><a href="{% url 'blog_post' post.id %}" class="neon-link">{{ post.titulo }}</a></h2>
+                <small class="text-muted">Publicado el {{ post.fecha_publicacion|date:"d/m/Y" }}</small>
+                <p>{{ post.contenido|truncatechars:200 }}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}

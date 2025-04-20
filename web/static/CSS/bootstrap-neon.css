@@ -1,0 +1,126 @@
+/* Bootstrap 5 Neon Theme - By DB/ */
+:root {
+    --neon-blue: #0dcaf0;
+    --neon-pink: #ff00ff;
+    --dark-bg: #0a0a1a;
+    --darker-bg: #050510;
+  }
+  
+  /* Base Styles */
+  body {
+    background-color: var(--dark-bg);
+    color: white;
+    font-family: 'Courier New', monospace;
+  }
+  
+  /* Navbar Cyberpunk */
+  .navbar {
+    background-color: transparent !important;
+    border-bottom: 1px solid var(--neon-blue);
+  }
+  
+  .navbar-brand {
+    color: var(--neon-blue) !important;
+    text-shadow: 0 0 5px var(--neon-blue);
+    font-weight: bold;
+  }
+  
+  .nav-link {
+    color: white !important;
+    transition: all 0.3s;
+  }
+  
+  .nav-link:hover {
+    color: var(--neon-blue) !important;
+    text-shadow: 0 0 5px var(--neon-blue);
+  }
+  
+  /* Buttons */
+  .btn-primary {
+    background-color: transparent;
+    border: 1px solid var(--neon-blue);
+    color: var(--neon-blue);
+    transition: all 0.3s;
+  }
+  
+  .btn-primary:hover {
+    background-color: var(--neon-blue);
+    color: var(--dark-bg);
+    box-shadow: 0 0 15px var(--neon-blue);
+  }
+  
+  /* Cards */
+  .card {
+    background-color: rgba(13, 202, 240, 0.05);
+    border: 1px solid var(--neon-blue);
+    transition: transform 0.3s;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px rgba(13, 202, 240, 0.3);
+  }
+  
+  .card-title {
+    color: var(--neon-blue);
+  }
+  
+  /* Forms */
+  .form-control {
+    background-color: rgba(5, 5, 16, 0.8);
+    border: 1px solid var(--neon-blue);
+    color: white;
+  }
+  
+  .form-control:focus {
+    background-color: rgba(5, 5, 16, 0.9);
+    border-color: var(--neon-pink);
+    box-shadow: 0 0 10px var(--neon-pink);
+    color: white;
+  }
+  
+  /* Neon Text */
+  .neon-text {
+    color: var(--neon-blue);
+    text-shadow: 
+      0 0 5px var(--neon-blue),
+      0 0 10px var(--neon-blue);
+  }
+  
+  /* Grid Tech Items */
+  .tech-item {
+    background: rgba(13, 202, 240, 0.1);
+    border: 1px solid var(--neon-blue);
+    padding: 1rem;
+    transition: all 0.3s;
+  }
+  
+  .tech-item:hover {
+    background: rgba(13, 202, 240, 0.2);
+    box-shadow: 0 0 10px var(--neon-blue);
+  }
+  
+  /* Animations */
+  @keyframes glow {
+    0% { opacity: 0.7; }
+    50% { opacity: 1; }
+    100% { opacity: 0.7; }
+  }
+  
+  .glow-effect {
+    animation: glow 2s infinite;
+  }
+  
+  /* Scrollbar (Para Chrome) */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: var(--darker-bg);
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: var(--neon-blue);
+    border-radius: 10px;
+  }

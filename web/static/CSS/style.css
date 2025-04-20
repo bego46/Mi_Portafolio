@@ -1,0 +1,215 @@
+/* .cyber-bg {
+    background-color: #0a0a1a;
+    color: #fff;
+    font-family: 'Courier New', monospace;
+}
+
+.neon-logo {
+    color: #0dcaf0;
+    text-shadow: 0 0 10px #0dcaf0;
+}
+
+.tech-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+} */
+
+/* styles.css - Cyberpunk Neon Theme */
+:root {
+    --neon-blue: #0dcaf0;
+    --neon-pink: #ff00ff;
+    --dark-bg: #0a0a1a;
+    --darker-bg: #050510;
+  }
+  
+  /* === Base Styles === */
+  body {
+    background-color: var(--dark-bg);
+    color: #fff;
+    font-family: 'Courier New', monospace;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+  
+  /* === Logo DB/ === */
+  .logo-container {
+    text-align: center;
+    margin: 3rem 0;
+    position: relative;
+    z-index: 10;
+  }
+  
+  .neon-logo {
+    font-size: 5rem;
+    font-weight: bold;
+    color: var(--neon-blue);
+    text-shadow: 
+      0 0 10px var(--neon-blue),
+      0 0 20px var(--neon-blue),
+      0 0 40px rgba(13, 202, 240, 0.5);
+    letter-spacing: -3px;
+  }
+  
+  /* === Tech Grid === */
+  .tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.5rem;
+    margin: 3rem 0;
+  }
+  
+  .tech-item {
+    background: rgba(13, 202, 240, 0.05);
+    border: 1px solid var(--neon-blue);
+    border-radius: 5px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+  }
+  
+  .tech-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 
+      0 0 15px var(--neon-blue),
+      0 0 30px rgba(13, 202, 240, 0.2);
+    background: rgba(13, 202, 240, 0.1);
+  }
+  
+  /* === Particles.js Container === */
+  #particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    opacity: 0.3;
+  }
+  
+  /* === Typography === */
+  h1, h2, h3 {
+    color: var(--neon-blue);
+    text-shadow: 0 0 5px var(--neon-blue);
+  }
+  
+  a {
+    color: var(--neon-blue);
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+  
+  a:hover {
+    color: var(--neon-pink);
+    text-shadow: 0 0 10px var(--neon-pink);
+  }
+  
+  /* === Card Styles === */
+  .card-cyber {
+    background: rgba(5, 5, 16, 0.7);
+    border: 1px solid var(--neon-blue);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.3s;
+    margin-bottom: 2rem;
+  }
+  
+  .card-cyber:hover {
+    transform: translateY(-10px);
+    box-shadow: 
+      0 0 20px var(--neon-blue),
+      0 0 40px rgba(13, 202, 240, 0.3);
+  }
+  
+  /* === Form Elements === */
+  .input-cyber {
+    background: rgba(5, 5, 16, 0.8) !important;
+    border: 1px solid var(--neon-blue) !important;
+    color: white !important;
+    padding: 0.75rem 1rem !important;
+  }
+  
+  .input-cyber:focus {
+    box-shadow: 0 0 15px var(--neon-blue) !important;
+    border-color: var(--neon-pink) !important;
+  }
+  
+  /* === Animations === */
+  @keyframes pulse {
+    0% { opacity: 0.8; }
+    50% { opacity: 1; }
+    100% { opacity: 0.8; }
+  }
+  
+  .pulse-effect {
+    animation: pulse 2s infinite ease-in-out;
+  }
+  
+  /* === Responsive Adjustments === */
+  @media (max-width: 768px) {
+    .neon-logo {
+      font-size: 3rem;
+    }
+    
+    .tech-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* === Blog Styles === */
+.card-cyber {
+  background: rgba(13, 202, 240, 0.05);
+  border: 1px solid var(--neon-blue);
+  transition: all 0.3s;
+}
+
+.card-cyber:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px rgba(13, 202, 240, 0.3);
+}
+
+.neon-link {
+  color: var(--neon-blue);
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.neon-link:hover {
+  text-shadow: 0 0 10px var(--neon-blue);
+}
+
+/* === Projects Grid === */
+.grid-3-col {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.project-card {
+  background: rgba(5, 5, 16, 0.7);
+  border: 1px solid var(--neon-pink);
+  padding: 1.5rem;
+  border-radius: 8px;
+}
+
+.project-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border: 1px solid var(--neon-blue);
+}
+
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+.tag {
+  background: rgba(255, 0, 255, 0.1);
+  padding: 0.3rem 0.6rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+}

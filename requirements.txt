@@ -1,0 +1,4 @@
+django
+gunicorn
+psycopg2-binary  # Para PostgreSQL en producción
+

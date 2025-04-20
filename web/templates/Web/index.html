@@ -1,0 +1,14 @@
+{% extends 'web/base.html' %}
+
+{% block title%} Portafolio {% endblock %}
+
+{% block content %}
+<div class="cyber-container">
+    <h1 class="neon-logo">{DB/}</h1>
+    <div class="tech-grid">
+        {% for skill in skills %}
+        <div class="tech-item">{{ skill }}</div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

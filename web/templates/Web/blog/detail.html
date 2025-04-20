@@ -1,0 +1,29 @@
+{% extends 'web/base.html' %}  <!-- Hereda de una base común -->
+
+{% block title %}{{ post.titulo }} {% endblock %}
+
+{% block content %}
+<div class="cyber-container">
+    <article>
+        <h1 class="neon-text">{{ post.titulo }}</h1>
+        <div class="meta text-cyan">
+            <small>{{ post.fecha_publicacion|date:"d/m/Y H:i" }}</small>
+        </div>
+        
+        <div class="post-content mt-4">
+            {{ post.contenido|linebreaks }}
+        </div>
+    </article>
+
+    <!-- Comentarios (opcional) -->
+    <section class="mt-5">
+        <h3 class="neon-text">Comentarios <span class="badge bg-pink">{{ post.comment_set.count }}</span></h3>
+        {% for comment in post.comment_set.all %}
+        <div class="comment-card">
+            <strong>{{ comment.autor }}</strong>
+            <p>{{ comment.contenido }}</p>
+        </div>
+        {% endfor %}
+    </section>
+</div>
+{% endblock %}
