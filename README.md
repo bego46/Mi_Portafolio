@@ -5,28 +5,28 @@ Este proyecto está orientado a reclutadores, colaboradores y personas interesad
 
 💻 Tecnologías utilizadas:
 
-Django (Python)
+  - Django (Python)
 
-HTML5, CSS3
+  - HTML5, CSS3
 
-Bootstrap (opcional)
+  - Bootstrap (opcional)
 
-SQLite (base de datos por defecto)
+  - SQLite (base de datos por defecto)
 
 📌 Funcionalidades:
 
-Página de inicio con presentación personal
+  - Página de inicio con presentación personal
 
-Sección de proyectos con imágenes y enlaces
+  - Sección de proyectos con imágenes y enlaces
 
-Sección de contacto
+  - Sección de contacto
 
-Panel de administración para gestionar contenido
+  - Panel de administración para gestionar contenido
 
 🚀 Próximamente:
 
-Blog técnico integrado
+  - Blog técnico integrado
 
-Formulario de contacto funcional
+  - Formulario de contacto funcional
 
 Versión desplegada en Render o PythonAnywhere
