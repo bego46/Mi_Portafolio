@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+#from dotenv import load_dotenv
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -21,12 +22,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '[&Rey&&Eterno&]'
+#load_dotenv()
+SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -109,6 +111,8 @@ LANGUAGE_CODE = 'es-co'
 
 TIME_ZONE = 'America/Bogota'
 
+USE_TZ = True
+
 USE_I18N = True
 
 USE_TZ = True
@@ -118,9 +122,31 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'WEB/static')]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'web/static')]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Seguridad de Cookies
+
+SESSION_COOKIE_SECURE = True        # Solo por HTTPS
+CSRF_COOKIE_SECURE = True           # Solo por HTTPS
+SESSION_COOKIE_HTTPONLY = True      # No accesible desde JS
+
+# Seguridad del navegador
+
+SECURE_BROWSER_XSS_FILTER = True         # Protección XSS
+SECURE_CONTENT_TYPE_NOSNIFF = True       # Evita que el navegador adivine el tipo de contenido
+X_FRAME_OPTIONS = 'DENY'                 # Evita que tu web se cargue en un iframe
+
+
+
+INSTALLED_APPS += ['csp']
+
+CSP_DEFAULT_SRC = ("'self'",)
+CSP_SCRIPT_SRC = ("'self'", 'cdn.jsdelivr.net', 'cdnjs.cloudflare.com')
+CSP_STYLE_SRC = ("'self'", "'unsafe-inline'", 'fonts.googleapis.com')
+CSP_FONT_SRC = ("'self'", 'fonts.gstatic.com')
+

@@ -1,14 +1,22 @@
-{% extends 'web/base.html' %}
-
-{% block title%} Portafolio {% endblock %}
-
+{% extends 'Web/base.html' %}
+{% block title %}Inicio{% endblock %}
 {% block content %}
-<div class="cyber-container">
-    <h1 class="neon-logo">{DB/}</h1>
-    <div class="tech-grid">
-        {% for skill in skills %}
-        <div class="tech-item">{{ skill }}</div>
-        {% endfor %}
+<section class="text-center mb-5">
+    <h1 class="display-4 neon-text">¡Hola, soy Berlad!</h1>
+    <p class="lead">Desarrollador web con experiencia en Python, Django y reparación de discos.</p>
+</section>
+<section class="row text-center">
+    <div class="col-md-4">
+        <h3 class="text-info">Python</h3>
+        <p>Automatización, scripts, back-end y más.</p>
     </div>
-</div>
+    <div class="col-md-4">
+        <h3 class="text-info">Django</h3>
+        <p>Desarrollo de aplicaciones web modernas y seguras.</p>
+    </div>
+    <div class="col-md-4">
+        <h3 class="text-info">Hardware</h3>
+        <p>Diagnóstico, restauración y mantenimiento de discos duros.</p>
+    </div>
+</section>
 {% endblock %}

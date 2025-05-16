@@ -1,25 +1,19 @@
-{% extends 'web/base.html' %}
-
-{% block title %}Proyectos{% endblock %}
-
+{% extends 'Web/base.html' %}
+{% block title %}Proyectos | Developer Berlad{% endblock %}
 {% block content %}
-    <div class="cyber-container">
-        <h1 class="neon-text">Proyectos <span class="text-pink">//</span></h1>
-        
-        <div class="grid-3-col">
-            {% for proyecto in proyectos %}
-            <div class="project-card">
-                <img src="{{ proyecto.imagen.url }}" alt="{{ proyecto.titulo }}" class="project-img">
-                <h3>{{ proyecto.titulo }}</h3>
-                <p>{{ proyecto.descripcion|truncatechars:100 }}</p>
-                <div class="tech-tags">
-                    {% for tech in proyecto.tecnologias.split %}
-                    <span class="tag">{{ tech }}</span>
-                    {% endfor %}
-                </div>
-                <a href="{{ proyecto.url }}" class="btn-neon">Ver Proyecto</a>
+<h2 class="mb-4">Mis Proyectos</h2>
+<div class="row">
+    {% for proyecto in proyectos %}
+    <div class="col-md-4 mb-4">
+        <div class="card h-100">
+            <img src="{{ proyecto.imagen.url }}" class="card-img-top" alt="{{ proyecto.titulo }}">
+            <div class="card-body">
+                <h5 class="card-title">{{ proyecto.titulo }}</h5>
+                <p class="card-text">{{ proyecto.descripcion }}</p>
+                <a href="{{ proyecto.link }}" class="btn btn-outline-info" target="_blank">Ver más</a>
             </div>
-            {% endfor %}
         </div>
     </div>
+    {% endfor %}
+</div>
 {% endblock %}
