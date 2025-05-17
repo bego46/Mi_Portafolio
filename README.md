@@ -1,4 +1,4 @@
-# <DB/> Developments Berlad
+# &lt;DB/&gt; Developments Berlad
 
 ---
 
@@ -63,11 +63,11 @@ python manage.py runserver
 ### 📝 Licencia
 
 🔒 Este proyecto está protegido por derechos de autor.
-El código contenido aquí no puede ser copiado, modificado ni reutilizado sin autorización de Developments Berlad (<DB/>).
+El código contenido aquí no puede ser copiado, modificado ni reutilizado sin autorización de Developments Berlad (&lt;DB/&gt;).
 
 ### ✒️ Autor
 
-**Developments Berlad** (<DB/>)
+**Developments Berlad** (&lt;DB/&gt;)
 Desarrollador enfocado en crear soluciones tecnológicas útiles y atractivas.
 
 ### 📬 Contacto
@@ -139,11 +139,11 @@ python manage.py runserver
 ### 📝 License
 
 🔒 This project is protected by copyright.
-The code here cannot be copied, modified, or reused without authorization from Developments Berlad (<DB/>).
+The code here cannot be copied, modified, or reused without authorization from Developments Berlad (&lt;DB/&gt;).
 
 ### ✒️ Author
 
-**Developments Berlad** (<DB/>)
+**Developments Berlad** (&lt;DB/&gt;)
 Developer focused on creating useful and attractive technological solutions.
 
 ### 📬 Contact
@@ -215,11 +215,11 @@ python manage.py runserver
 ### 📝 Lizenz
 
 🔒 Dieses Projekt ist urheberrechtlich geschützt.
-Der hier enthaltene Code darf nicht ohne Genehmigung von Developments Berlad (<DB/>) kopiert, verändert oder wiederverwendet werden.
+Der hier enthaltene Code darf nicht ohne Genehmigung von Developments Berlad (&lt;DB/&gt;) kopiert, verändert oder wiederverwendet werden.
 
 ### ✒️ Autor
 
-**Developments Berlad** (<DB/>)
+**Developments Berlad** (&lt;DB/&gt;)
 Entwickler mit Fokus auf nützliche und attraktive technologische Lösungen.
 
 ### 📬 Kontakt
@@ -291,11 +291,11 @@ python manage.py runserver
 ### 📝 라이선스
 
 🔒 이 프로젝트는 저작권으로 보호받고 있습니다.
-여기 포함된 코드는 Developments Berlad (<DB/>)의 허가 없이 복사, 수정, 재사용할 수 없습니다.
+여기 포함된 코드는 Developments Berlad (&lt;DB/&gt;)의 허가 없이 복사, 수정, 재사용할 수 없습니다.
 
 ### ✒️ 작성자
 
-**Developments Berlad** (<DB/>)
+**Developments Berlad** (&lt;DB/&gt;)
 유용하고 매력적인 기술 솔루션을 만드는 데 집중하는 개발자.
 
 ### 📬 연락처
