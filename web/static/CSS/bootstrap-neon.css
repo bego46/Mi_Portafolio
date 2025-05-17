@@ -50,19 +50,38 @@
   }
   
   /* Cards */
-  .card {
-    background-color: rgba(13, 202, 240, 0.05);
-    border: 1px solid var(--neon-blue);
-    transition: transform 0.3s;
+  .col-md-4 {
+    margin-bottom: 20px;
+    background: transparent; /* Fondo blanco con transparencia */
+
   }
+  .card {
+    background: transparent; /* Fondo blanco con transparencia */
+    /* backdrop-filter: blur(10px); Efecto de desenfoque */
+    /* -webkit-backdrop-filter: blur(10px); Compatibilidad con Safari */
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Borde suave */
+    /* box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2); Sombra para resaltar */
+    padding: 20px;
+    transition: 0.3s ease-in-out;
+  }
+
   
   .card:hover {
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(20px);
     transform: translateY(-5px);
     box-shadow: 0 0 20px rgba(13, 202, 240, 0.3);
   }
   
   .card-title {
     color: var(--neon-blue);
+  }
+
+  .card-img-top {
+    height: 200px;
+    object-fit: cover;
+    border-radius: 4px;
   }
   
   /* Forms */

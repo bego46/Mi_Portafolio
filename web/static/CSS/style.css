@@ -1,7 +1,6 @@
 body {
-    background-color: #0a0f1c;
-    color: #e0e0e0;
-    font-family: 'Segoe UI', sans-serif;
+    color: #ffffff;
+    font-family: Arial, 'Segoe UI', sans-serif;
 }
 
 .neon-text {
@@ -32,18 +31,5 @@ footer {
     color: #777;
 }
 
-.card {
-    background-color: #1a1a1a;
-    border: none;
-    color: #eee;
-}
 
-.card-title {
-    color: #0ff;
-}
 
-.card-img-top {
-    height: 200px;
-    object-fit: cover;
-    border-radius: 4px;
-}
