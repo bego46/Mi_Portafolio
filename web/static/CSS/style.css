@@ -24,11 +24,6 @@ body {
     font-family: Arial, 'Segoe UI', sans-serif;
 }
 
-.neon-text {
-    color: #0ff;
-    text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 20px #0ff;
-}
-
 .navbar-brand {
     font-weight: bold;
     font-size: 1.5rem;

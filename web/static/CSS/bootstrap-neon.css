@@ -118,7 +118,11 @@ without express permission.
     box-shadow: 0 0 10px var(--neon-pink);
     color: white;
   }
-  
+  /* Neon Image */
+  .shadow-custom {
+    box-shadow: 0 0 25px rgba(0, 123, 255, 0.6); /* azul Bootstrap */
+  }
+
   /* Neon Text */
   .neon-text {
     color: var(--neon-blue);

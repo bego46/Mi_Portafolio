@@ -18,12 +18,33 @@ without express permission.
 ------------------------------------------------------------------------------
 
 -->
-
 {% extends 'Web/base.html' %}
+{% load static %}
 {% block title %}Sobre mí | Developer Berlad{% endblock %}
-{% block content %}
-<h2 class="mb-4">Sobre mí</h2>
-<p>Soy un desarrollador web junior con pasión por crear soluciones digitales funcionales y visualmente atractivas. Tengo experiencia en mantenimiento de hardware, desarrollo backend con Django y automatización con Python.</p>
-<p>Me considero una persona autodidacta, organizada y con gran capacidad de adaptación. Actualmente, continúo fortaleciendo mis habilidades en tecnologías como JavaScript, Linux y herramientas de rescate de sistemas.</p>
-{% endblock %}
 
+{% block content %}
+<div class="container py-5">
+  <div class="row align-items-center">
+    <div class="col-md-4 text-center mb-4 mb-md-0">
+      <img src="{% static 'img/Berlad.jpg' %}" alt="Foto de Berlad" class="img-fluid rounded-circle shadow-custom" style="max-width: 250px;">
+    </div>
+    <div class="col-md-8">
+      <h2 class="mb-4 text-primary fw-bold">
+        <i class="bi bi-person-circle me-2"></i>Sobre mí
+      </h2>
+      <p class="fs-5">
+        Soy un apasionado por la <strong>tecnología</strong> y el <strong>desarrollo de software</strong>, actualmente en formación como desarrollador web con conocimientos prácticos en <span class="text-decoration-underline">Python, HTML, CSS, JavaScript y Django</span>. Me encanta aprender de forma constante y poner en práctica lo que aprendo a través de proyectos reales y útiles.
+      </p>
+      <p class="fs-5">
+        He trabajado en el desarrollo de aplicaciones como <em>calculadoras financieras con Tkinter</em>, así como estructuras web con Django, integrando <strong>Git y GitHub</strong> como parte del flujo de trabajo profesional.
+      </p>
+      <p class="fs-5">
+        Me caracterizo por ser <strong>autodidacta, disciplinado</strong> y orientado a resultados. Actualmente también me encuentro en capacitación con <strong>Royal Prestige</strong>, lo cual me ha ayudado a fortalecer habilidades de comunicación, enfoque en objetivos y liderazgo, que complemento con mi perfil técnico.
+      </p>
+      <p class="fs-5">
+        Busco seguir creciendo profesionalmente dentro del campo tecnológico, contribuir con soluciones creativas y prácticas, y formar parte de equipos donde pueda aportar valor desde la programación y el pensamiento lógico.
+      </p>
+    </div>
+  </div>
+</div>
+{% endblock %}
