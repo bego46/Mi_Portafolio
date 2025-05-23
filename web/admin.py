@@ -20,6 +20,13 @@ without express permission.
 """
 
 from django.contrib import admin
-from .models import Proyecto
+from .models import Proyecto, MensajeContacto
+
+@admin.register(MensajeContacto)
+class MensajeContactoAdmin(admin.ModelAdmin):
+    list_display = ('nombre', 'correo', 'asunto', 'fecha_envio')
+    list_filter = ('fecha_envio',)
+    search_fields = ('nombre', 'correo', 'asunto')
+
 
 admin.site.register(Proyecto)

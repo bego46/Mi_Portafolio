@@ -20,14 +20,16 @@ without express permission.
 """
 
 from django import forms
-from .models import BlogPost, Comment
+from .models import MensajeContacto
 
-class BlogPostForm(forms.ModelForm):
+class ContactoForm(forms.ModelForm):
     class Meta:
-        model = BlogPost
-        fields = ['titulo', 'contenido']
-
-class CommentForm(forms.ModelForm):
-    class Meta:
-        model = Comment
-        fields = ['autor', 'contenido']
+        model = MensajeContacto
+        fields = ["nombre", "correo", "asunto", "mensaje"]
+        widgets = {
+            'nombre': forms.TextInput(attrs={'class':'form-control', 'placeholder': 'Tu Nombre'}),
+            'correo': forms.EmailInput(attrs={'class':'form-control', 'placeholder': 'Tu Correo Electronico'}),
+            'asunto': forms.TextInput(attrs={'class':'form-control', 'placeholder': 'Asunto'}),
+            'mensaje': forms.Textarea(attrs={'class':'form-control', 'placeholder': 'Escribe tu mensaje aqui...'}),
+        }
+        

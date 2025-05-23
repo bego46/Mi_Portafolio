@@ -22,8 +22,8 @@ without express permission.
 
 
 from pathlib import Path
-#from dotenv import load_dotenv
-from decouple import config
+from dotenv import load_dotenv
+from decouple import config, Csv
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -162,3 +162,12 @@ X_FRAME_OPTIONS = 'DENY'                 # Evita que tu web se cargue en un ifra
 # CSP_STYLE_SRC = ("'self'", "'unsafe-inline'", 'fonts.googleapis.com')
 # CSP_FONT_SRC = ("'self'", 'fonts.gstatic.com')
 
+# Email
+
+EMAIL_BACKEND = config('EMAIL_BACKEND')
+EMAIL_HOST = config('EMAIL_HOST')
+EMAIL_PORT = config('EMAIL_PORT', cast=int)
+EMAIL_USE_TLS = config('EMAIL_USE_TLS', cast=bool)
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL', default=EMAIL_HOST_USER)
