@@ -20,11 +20,10 @@ without express permission.
 -->
 
 {% extends 'Web/base.html' %}
-{% block title %}Proyectos | Developer Berlad{% endblock %}
+{% block title %}Proyectos | Developments Berlad{% endblock %}
 {% block content %}
-<h2 class="mb-4">Mis Proyectos</h2>
-<h3 class="mb-4">PROXIMAMENTE</h3>
 <div class="row">
+    <h2 class="mb-4">Proyectos Terminados</h2>
     {% for proyecto in proyectos %}
     <div class="col-md-4 mb-4">
         <div class="card h-100">
@@ -38,4 +37,6 @@ without express permission.
     </div>
     {% endfor %}
 </div>
+<h2 class="mb-4">Proyectos En Produccion</h2>
+
 {% endblock %}
