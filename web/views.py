@@ -31,8 +31,34 @@ def index(request):
     return render(request, 'Web/index.html')
 
 def proyectos(request):
+    estado_filtro= request.GET.get('estado', 'todos')
+    tipo_filtro= request.GET.get('tipo', 'todos')
+    tecnologias_filtro = request.GET.get('tecnologias', 'todos')
+    orden_por_progreso = request.GET.get('orden', 'descendente')
+    
     proyectos = Proyecto.objects.all()
-    return render(request, 'Web/projects/list.html', {'proyectos': proyectos})
+    
+    if estado_filtro != 'todos':
+        proyectos = proyectos.filter(estado=estado_filtro)
+        
+    if tipo_filtro != 'todos':
+        proyectos = proyectos.filter(tipo=tipo_filtro)
+        
+    if tecnologias_filtro != 'todos':
+        proyectos = proyectos.filter(tecnologias__icontains=tecnologias_filtro)
+        
+    if orden_por_progreso == 'ascendente':
+        proyectos = proyectos.order_by('progreso')
+    else:
+        proyectos = proyectos.order_by('-progreso')
+        
+    return render(request, 'Web/projects/list.html', {
+        'proyectos': proyectos,
+        'estado_filtro': estado_filtro,
+        'tipo_filtro':tipo_filtro,
+        'tecnologias_filtro':tecnologias_filtro,
+        'ordenar_por_progreso' : orden_por_progreso
+        })
 
 def sobre_mi(request):
     return render(request, 'Web/sobre_mi.html')

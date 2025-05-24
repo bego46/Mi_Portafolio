@@ -19,65 +19,63 @@ without express permission.
 
 */
 
-// Efecto de escritura en el título (opcional)
-function typeWriter(elementId, text, speed = 100) {
-    let i = 0;
-    const element = document.getElementById(elementId);
-    if (!element) return;
-
-    element.innerHTML = '';
-    
-    function typing() {
-        if (i < text.length) {
-            element.innerHTML += text.charAt(i);
-            i++;
-            setTimeout(typing, speed);
-        }
-    }
-    typing();
-}
-
-// Activar efecto al cargar la página
 document.addEventListener('DOMContentLoaded', function() {
-    // Efecto de escritura (ejemplo para el título)
-    const title = document.querySelector('.neon-logo');
-    if (title) {
-        typeWriter('dynamic-title', '{DB/}', 150);
+    console.log("🚀 DOM listo!");
+
+    // 💡 Efecto de escritura en el título
+    const titleElement = document.getElementById('dynamic-title');
+    if (titleElement) {
+        typeWriter(titleElement, "{DB/}", 150);
     }
 
-    // Efecto hover en tarjetas de proyectos
-    const projectCards = document.querySelectorAll('.project-card');
-    projectCards.forEach(card => {
-        card.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-10px)';
-            this.style.boxShadow = '0 0 25px rgba(13, 202, 240, 0.5)';
+    // 🎨 Hover en tarjetas de proyectos
+    document.querySelectorAll('.project-card').forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            card.style.transform = 'translateY(-10px)';
+            card.style.boxShadow = '0 0 25px rgba(13, 202, 240, 0.5)';
         });
-        
-        card.addEventListener('mouseleave', function() {
-            this.style.transform = '';
-            this.style.boxShadow = '';
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = '';
+            card.style.boxShadow = '';
         });
     });
 
-    // Botón de "Modo Oscuro" (opcional)
+    // 🌙 Modo Oscuro con `localStorage`
     const darkModeToggle = document.getElementById('dark-mode-toggle');
     if (darkModeToggle) {
-        darkModeToggle.addEventListener('click', function() {
+        darkModeToggle.addEventListener('click', () => {
             document.body.classList.toggle('dark-mode-active');
             localStorage.setItem('darkMode', document.body.classList.contains('dark-mode-active'));
         });
 
-        // Cargar preferencia guardada
+        // Aplicar preferencia guardada
         if (localStorage.getItem('darkMode') === 'true') {
             document.body.classList.add('dark-mode-active');
         }
     }
-});
 
-console.log("🔥 Scripts.js cargado correctamente!");
-document.addEventListener('DOMContentLoaded', function() {
-    console.log("🚀 DOM listo!");
-    particlesJS.load('particles-js', 'particles.json', function() {
-        console.log("💻 Partículas inicializadas!");
+    // 📷 Lightbox para imágenes
+    const modal = document.getElementById("image-modal");
+    const modalImg = document.getElementById("modal-img");
+    const closeModal = document.querySelector(".close-modal");
+    
+    document.querySelectorAll(".card-img-top").forEach(img => {
+        img.addEventListener("click", function() {
+            modal.style.display = "flex";
+            modalImg.src = this.src;
+            modalImg.style.maxWidth = "90%";
+            modalImg.style.maxHeight = "90%";
+        });
+    });
+
+    // ❌ Cerrar el modal correctamente
+    closeModal.addEventListener("click", function() {
+        modal.style.display = "none";
+    });
+
+    modal.addEventListener("click", function(event) {
+        if (event.target === modal) {
+            modal.style.display = "none";
+        }
     });
 });

@@ -22,13 +22,33 @@ without express permission.
 from django.db import models
 
 class Proyecto(models.Model):
+    ESTADOS = [
+        ('produccion', '🟢 En Producción'),
+        ('beta', '🟣 En Beta'),
+        ('desarrollo', '🟡En Desarrollo'),
+        ('finalizado', '🔴 Finalizado')
+    ]
+    
+    TIPOS_PROYECTOS = [
+        ('web', '🌐 Aplicación Web'),
+        ('escritorio', '🖥️ Sotfware de Escritorio'),
+        ('movil', '📱 Aplicación Móvil'),
+        ('ai', '🤖 Asistente Virtual')
+    ]
+    
     titulo = models.CharField(max_length=100)
     descripcion = models.TextField()
-#    imagen = models.ImageField(upload_to='proyectos/')
-    link = models.URLField(blank=True)
+    estado = models.CharField(max_length=20, choices=ESTADOS, default='desarrollo')
+    tipo = models.CharField(max_length=20, choices=TIPOS_PROYECTOS, default='web')
+    progreso = models.IntegerField(default=0)
+    tecnologias = models.CharField(max_length=255, default='Sin especificar')
+    version = models.CharField(max_length=10, default=1.0)
+    imagen = models.ImageField(upload_to='proyectos/', null=True, blank=True)
+    enlace = models.URLField(blank=True, null=True)
+    github = models.URLField(blank=True, null=True)
 
     def __str__(self):
-        return self.titulo
+        return f"{self.titulo} ({self.get_estado_display()})"
 
 class MensajeContacto(models.Model):
     nombre = models.CharField(max_length=100)

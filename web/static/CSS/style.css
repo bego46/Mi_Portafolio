@@ -18,34 +18,47 @@ without express permission.
 ------------------------------------------------------------------------------
 
 */
-
+/* 🏗️ Base Styles */
 body {
     color: #ffffff;
     font-family: Arial, 'Segoe UI', sans-serif;
+    background-color: var(--dark-bg);
 }
 
+/* 🚀 Navbar */
 .navbar-brand {
     font-weight: bold;
     font-size: 1.5rem;
 }
 
-a.nav-link {
+.nav-link {
     color: #ccc !important;
     transition: color 0.3s ease;
 }
 
-a.nav-link:hover {
+.nav-link:hover {
     color: #0ff !important;
 }
 
+/* 📦 Secciones */
 section {
     margin-top: 2rem;
 }
 
+/* 🦶 Footer */
 footer {
     background-color: #111;
     color: #777;
 }
 
+/* 🔄 Barra de Progreso */
+.progress {
+    background-color: var(--darker-bg);
+    border-radius: 4px;
+}
+
+.progress-bar {
+    background-color: var(--neon-blue);
+}
 
 

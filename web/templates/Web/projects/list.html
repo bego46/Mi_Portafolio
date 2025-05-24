@@ -22,21 +22,88 @@ without express permission.
 {% extends 'Web/base.html' %}
 {% block title %}Proyectos | Developments Berlad{% endblock %}
 {% block content %}
-<div class="row">
-    <h2 class="mb-4">Proyectos Terminados</h2>
-    {% for proyecto in proyectos %}
-    <div class="col-md-4 mb-4">
-        <div class="card h-100">
-            <img src="{{ proyecto.imagen.url }}" class="card-img-top" alt="{{ proyecto.titulo }}">
-            <div class="card-body">
-                <h5 class="card-title">{{ proyecto.titulo }}</h5>
-                <p class="card-text">{{ proyecto.descripcion }}</p>
-                <a href="{{ proyecto.link }}" class="btn btn-outline-info" target="_blank">Ver más</a>
+<div class="container">
+    <h2 class="neon-text mb-4"><i class="fas fa-search"></i> Filtrar Proyectos</h2>
+    
+    <div class="filtro-container mb-4">
+        <form method="GET">
+            <div class="row">
+                <div class="col-md-4">
+                    <label for="estado" class="neon-text"><i class="fas fa-layer-group"></i> Estado:</label>
+                    <select name="estado" id="estado">
+                        <option value="todos">Todos</option>
+                        <option value="produccion">🟢 En Producción</option>
+                        <option value="beta">🟣 En Beta</option>
+                        <option value="desarrollo">🟡 En Desarrollo</option>
+                        <option value="finalizado">🔴 Finalizado</option>
+                    </select>
+                </div>
+
+                <div class="col-md-4">
+                    <label for="tipo" class="neon-text"><i class="fas fa-code"></i> Tipo:</label>
+                    <select name="tipo" id="tipo">
+                        <option value="todos">Todos</option>
+                        <option value="web"><i class="fas fa-globe"></i> Web</option>
+                        <option value="escritorio"><i class="fas fa-desktop"></i> Escritorio</option>
+                        <option value="movil"><i class="fas fa-mobile-alt"></i> Móvil</option>
+                        <option value="ai"><i class="fas fa-robot"></i> Asistente Virtual</option>
+                    </select>
+                </div>
+
+                <div class="col-md-4">
+                    <label for="tecnologia" class="neon-text"><i class="fas fa-microchip"></i> Tecnología:</label>
+                    <input type="text" name="tecnologia" id="tecnologia" placeholder="Ejemplo: Django">
+                </div>
+            </div>
+
+            <button type="submit" class="btn-filtrar mt-3"><i class="fas fa-filter"></i> Filtrar 🔥</button>
+        </form>
+    </div>
+
+    <h2 class="mb-4 neon-text">💻 Proyectos</h2>
+    <div class="row">
+        {% for proyecto in proyectos %}
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 project-card">
+                <img src="{{ proyecto.imagen.url }}" class="card-img-top" alt="{{ proyecto.titulo }}">
+                <div class="card-body">
+                    <h5 class="card-title neon-text">{{ proyecto.titulo }}</h5>
+                    
+                    <!-- Estado del Proyecto -->
+                    <span class="badge 
+                        {% if proyecto.estado == 'produccion' %} bg-success 
+                        {% elif proyecto.estado == 'beta' %} bg-primary 
+                        {% elif proyecto.estado == 'desarrollo' %} bg-warning 
+                        {% else %} bg-danger {% endif %}">
+                        {{ proyecto.get_estado_display }}
+                    </span>
+
+                    <p class="card-text">{{ proyecto.descripcion }}</p>
+                    <p class="card-text"><strong>Tipo:</strong> {{ proyecto.get_tipo_display }}</p>
+
+                    <!-- Barra de Progreso -->
+                    <div class="progress">
+                        <div class="progress-bar bg-info" role="progressbar" style="width: {{ proyecto.progreso }}%;" 
+                            aria-valuenow="{{ proyecto.progreso }}" aria-valuemin="0" aria-valuemax="100">
+                            {{ proyecto.progreso }}%
+                        </div>
+                    </div>
+
+                    <div class="mt-3">
+                        <a href="{{ proyecto.enlace }}" class="btn btn-outline-info" target="_blank">Ver más</a>
+                        <a href="{{ proyecto.github }}" class="btn btn-outline-secondary" target="_blank">Código fuente</a>
+                    </div>
+                </div>
             </div>
         </div>
+        {% endfor %}
     </div>
-    {% endfor %}
+    
+    <!-- Lightbox para mostrar imagen ampliada -->
+    <div id="image-modal" class="image-modal">
+        <span class="close-modal">&times;</span>
+        <img id="modal-img" class="modal-content">
+    </div>
 </div>
-<h2 class="mb-4">Proyectos En Produccion</h2>
 
 {% endblock %}
