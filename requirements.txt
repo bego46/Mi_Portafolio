@@ -4,7 +4,9 @@ gunicorn==23.0.0
 packaging==25.0
 pillow==11.2.1
 psycopg2-binary==2.9.10
+pyngrok==7.2.9
 python-decouple==3.8
 python-dotenv==1.1.0
+PyYAML==6.0.2
 sqlparse==0.5.3
 tzdata==2025.2
