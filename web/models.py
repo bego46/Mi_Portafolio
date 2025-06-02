@@ -21,6 +21,21 @@ without express permission.
 
 from django.db import models
 
+class Certificados(models.Model):
+    ESTADOS = [
+        ('planeado', '🔴 Planeado'),
+        ('progreso', '🟡 En progreso'),
+        ('completado', '🟢 Completado'),
+    ]
+    
+    titulo = models.CharField(max_length=100)
+    estado = models.CharField(max_length=20, choices=ESTADOS, default='planeado')
+    progreso = models.IntegerField(default=0)
+    archivo = models.FileField(upload_to='certificados/', null=True, blank=True)
+    fecha_emision = models.DateField(null=True, blank=True)
+    def __str__(self):
+        return f"{self.titulo} - {self.get_estado_display()} ({self.progreso}%)"
+
 class Proyecto(models.Model):
     ESTADOS = [
         ('produccion', '🟢 En Producción'),

@@ -24,7 +24,7 @@ from django.contrib import messages
 from django.conf import settings
 from django.core.mail import send_mail, BadHeaderError
 from .forms import ContactoForm
-from .models import Proyecto
+from .models import Proyecto, Certificados
 
 
 def index(request):
@@ -63,6 +63,25 @@ def proyectos(request):
 def sobre_mi(request):
     return render(request, 'Web/sobre_mi.html')
 
+def certificados(request):
+    estado_filtro = request.GET.get('estado', 'todos')
+    orden_por_progreso = request.GET.get('progreso', 'descendente')
+    
+    certificados = Certificados.objects.all()
+    if estado_filtro != 'todos':
+        certificados = certificados.filter(estado=estado_filtro)
+    
+    if orden_por_progreso == 'ascendente':
+        certificados = certificados.order_by('progreso')
+    else:
+        certificados = certificados.order_by('-progreso')
+    
+    return render(request, "Web/certificados.html", {
+        'estado_filtro' : estado_filtro,
+        'ordenar_por_progreso' : orden_por_progreso,
+        'certificados' : certificados
+    })
+
 def contacto(request):
     form = ContactoForm()
     
@@ -75,9 +94,9 @@ def contacto(request):
                 # Enviar correo
                 send_mail(
                     subject=f"Nuevo mensaje de {contacto.nombre} - Asunto: {contacto.asunto}",
-                    message=contacto.mensaje,
-                    from_email=contacto.correo,
-                    recipient_list=[settings.DEFAULT_FROM_EMAIL],
+                    message=f"Correo del remitente: {contacto.correo}\n\nMensaje:\n{contacto.mensaje}",
+                    from_email=settings.EMAIL_HOST_USER,
+                    recipient_list=[settings.EMAIL_HOST_USER],  
                     fail_silently=False,
                 )
                 

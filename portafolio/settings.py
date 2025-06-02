@@ -40,7 +40,7 @@ SECRET_KEY = config('DJANGO_SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*', 'https://97b8-190-131-251-249.ngrok-free.app', '97b8-190-131-251-249.ngrok-free.app']
 
 
 # Application definition
@@ -149,6 +149,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 SESSION_COOKIE_SECURE = True        # Solo por HTTPS
 CSRF_COOKIE_SECURE = True           # Solo por HTTPS
 SESSION_COOKIE_HTTPONLY = True      # No accesible desde JS
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://97b8-190-131-251-249.ngrok-free.app'
+]
 
 # Seguridad del navegador
 

@@ -48,7 +48,11 @@ section {
 /* 🦶 Footer */
 footer {
     background-color: #111;
-    color: #777;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.pie_pagina {
+    color: white !important;
 }
 
 /* 🔄 Barra de Progreso */
@@ -59,6 +63,24 @@ footer {
 
 .progress-bar {
     background-color: var(--neon-blue);
+}
+
+.card-placeholder {
+    background: rgba(0, 0, 0, 0.6);
+    border: 2px dashed var(--neon-blue);
+    padding: 20px;
+    text-align: center;
+    color: white;
+}
+
+.btn-filtrar:hover {
+    transform: scale(1.05) rotate(0.5deg);
+}
+
+.certificados-container {
+    border: 2px solid var(--neon-pink);
+    padding: 20px;
+    box-shadow: 0 0 15px var(--neon-pink);
 }
 
 
