@@ -30,8 +30,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = config('DJANGO_SECRET_KEY')
 
 DEBUG = config('DEBUG')
-ALLOWED_HOSTS = ["localhost","127.0.0.1"]
-# ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='localhost').split(',')
+# ALLOWED_HOSTS = ["localhost","127.0.0.1"]
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='localhost').split(',')
 # CSRF_TRUSTED_ORIGINS = config('CSRF_TRUSTED_ORIGINS', default='').split(',')
 
 
