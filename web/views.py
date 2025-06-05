@@ -61,7 +61,10 @@ def proyectos(request):
         })
 
 def sobre_mi(request):
-    return render(request, 'Web/sobre_mi.html')
+    certificados = Certificados.objects.all()
+    return render(request, 'Web/sobre_mi.html', {
+        'certificados' : certificados
+    })
 
 def certificados(request):
     estado_filtro = request.GET.get('estado', 'todos')

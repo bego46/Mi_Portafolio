@@ -30,34 +30,38 @@
 
         <!-- 🎓 Lista de certificados -->
         <div class="row">
-            {% for certificado in certificados %}
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="card">
-                    <div class="card-body text-center">
-                        <h3 class="card-title">{{ certificado.titulo }}</h3>
-                        <p><strong>Estado:</strong> {{ certificado.get_estado_display }}</p>
-                        <div class="progress mb-3">
-                            <div class="progress-bar" style="width: {{ certificado.progreso }}%;" role="progressbar">
-                                {{ certificado.progreso }}%
+            {% if certificados %}
+                {% for certificado in certificados %}
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card">
+                            <div class="card-body text-center">
+                                <h3 class="card-title">{{ certificado.titulo }}</h3>
+                                <p><strong>Estado:</strong> {{ certificado.get_estado_display }}</p>
+                                <div class="progress mb-3">
+                                    <div class="progress-bar" style="width: {{ certificado.progreso }}%;" role="progressbar">
+                                        {{ certificado.progreso }}%
+                                    </div>
+                                </div>
+
+                                {% if certificado.imagen %}
+                                    <img src="{{ certificado.imagen.url }}" alt="{{ certificado.titulo }}" class="img-fluid">
+                                {% endif %}
+
+                                {% if certificado.archivo %}
+                                    {% comment %} <iframe src="{{ certificado.archivo.url }}" width="100%" height="300px"></iframe> {% endcomment %}
+                                    <a href="{{ certificado.archivo.url }}" target="_blank" class="btn btn-outline-light">
+                                        📄  Certificado
+                                    </a>
+                                {% endif %}
                             </div>
                         </div>
-
-                        {% if certificado.imagen %}
-                            <img src="{{ certificado.imagen.url }}" alt="{{ certificado.titulo }}" class="img-fluid">
-                        {% endif %}
-
-                        {% if certificado.archivo %}
-                            {% comment %} <iframe src="{{ certificado.archivo.url }}" width="100%" height="300px"></iframe> {% endcomment %}
-                            <a href="{{ certificado.archivo.url }}" target="_blank" class="btn btn-outline-light">
-                                📄  Certificado
-                            </a>
-                        {% endif %}
                     </div>
-                </div>
-            </div>
-            {% empty %}
-            <p class="text-center text-muted">No hay certificados disponibles.</p>
-            {% endfor %}
+                    {% empty %}
+                    <p class="text-center text-muted">No hay certificados disponibles.</p>
+                {% endfor %}
+            {% else %}
+                <p clsas="text_info">Proximamente</p>
+            {% endif %}
         </div>
     </div> 
 {% endblock %}

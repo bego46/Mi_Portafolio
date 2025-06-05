@@ -33,7 +33,40 @@ without express permission.
         <i class="bi bi-person-circle me-2"></i>Sobre mí
       </h2>
       <p class="fs-5">
-        Soy un apasionado por la <strong>tecnología</strong> y el <strong>desarrollo de software</strong>, con conocimientos prácticos en <span class="text-decoration-underline">Python, HTML, CSS, JavaScript y Django</span>. Me motiva el aprendizaje constante y la aplicación de conocimientos en proyectos reales y funcionales.
+        Soy un apasionado por la <strong>tecnología</strong> y el <strong>desarrollo de software</strong>, con conocimientos prácticos en:
+          <li class="text-decoration-underline fs-5">
+            <a class="text-white" href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank">
+              HTML
+            </a>
+          </li>
+          <li class="text-decoration-underline fs-5">
+            <a class="text-white" href="https://developer.mozilla.org/es/docs/Web/CSS" target="_blank">
+              CSS
+            </a>
+          </li>
+          <li class="text-decoration-underline fs-5">
+            <a class="text-white" href="https://getbootstrap.com/" target="_blank">
+              Bootstrap
+            </a>
+          </li>
+          <li class="text-decoration-underline fs-5">
+            <a class="text-white" href="https://developer.mozilla.org/es/docs/Web/JavaScript" target="_blank">
+              JavaScript
+            </a>
+          </li>
+          <li class="text-decoration-underline fs-5">
+            <a class="text-white" href="https://www.python.org/" target="_blank">
+              Python
+            </a>
+          </li>
+          <li class="text-decoration-underline fs-5">
+            <a class="text-white" href="https://www.djangoproject.com/" target="_blank">
+              Django
+            </a>
+          </li>
+      </p>
+      <p class="fs-5">
+        Me motiva el aprendizaje constante y la aplicación de conocimientos en proyectos reales y funcionales.
       </p>
       <p class="fs-5">
         He trabajado en el desarrollo de estructuras web con Django, integrando <strong>Git y GitHub</strong> como parte del flujo de trabajo profesional. Mi enfoque combina precisión técnica y creatividad para encontrar soluciones innovadoras.
@@ -44,7 +77,9 @@ without express permission.
       <p class="fs-5">
         Busco seguir creciendo profesionalmente dentro del campo tecnológico, contribuir con soluciones creativas y prácticas, y formar parte de equipos donde pueda aportar valor desde la programación y el pensamiento lógico.
       </p>
-      <a href="/certificados/" class="btn btn-outline-info" >Certificados</a>
+      {% if certificados %}
+        <a href="/certificados/" class="btn btn-outline-info" >Certificados</a>
+      {% endif %}
     </div>
   </div>
 </div>

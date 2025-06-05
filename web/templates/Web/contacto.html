@@ -30,7 +30,7 @@ without express permission.
 
             <div class="card shadow border-0 rounded-4">
                 <div class="card-body p-5">
-                    <h2 class="text-center mb-4">📬 Contáctame</h2>
+                    <h2 class="text-center mb-4"><i class="bi bi-person-lines-fill"> Contáctame</i></h2>
                     <p class="text-center text-muted mb-4">
                         ¿Tienes una idea, un proyecto o alguna consulta? ¡Estoy para ayudarte!
                     </p>
@@ -43,61 +43,58 @@ without express permission.
                             </div>
                         {% endfor %}
                     {% endif %}
+                    
+                    <div class="text-center">
+                        <div class="d-flex justify-content-center gap-4 flex-wrap">
+                            <a href="http://t.me/Berlad46" class="btn btn-outline-info">
+                                <i class="bi bi-telegram"> Telegram</i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/berladgonzalez/" target="_blank" class="btn btn-outline-primary">
+                                <i class="bi bi-linkedin"> LinkedIn</i>
+                            </a>
+                            <a href="https://github.com/bego46" target="_blank" class="btn btn-outline-light">
+                                <i class="bi bi-github"> GitHub</i>
+                            </a>
+                            <a href="https://wa.me/573132066372" target="_blank" class="btn btn-outline-success">
+                                <i class="bi bi-whatsapp"> WhatsApp</i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <hr class="my-5">
+                    <p class="mb-3">Enviame un correo aqui:</p>
 
                     <form method="post" novalidate>
                         {% csrf_token %}
                         {{ form.non_field_errors }}
                         
                         <div class="mb-3">
-                            {{ form.nombre.label_tag }}
                             {{ form.nombre }}
                             {{ form.nombre.errors }}
                         </div>
 
                         <div class="mb-3">
-                            {{ form.correo.label_tag }}
                             {{ form.correo }}
                             {{ form.correo.errors }}
                         </div>
 
                         <div class="mb-3">
-                            {{ form.asunto.label_tag }}
                             {{ form.asunto }}
                             {{ form.asunto.errors }}
                         </div>
 
                         <div class="mb-4">
-                            {{ form.mensaje.label_tag }}
                             {{ form.mensaje }}
                             {{ form.mensaje.errors }}
                         </div>
 
                         <div class="d-grid">
                             <button type="submit" class="btn btn-primary btn-lg">
-                                📨 Enviar mensaje
+                                <i class="bi bi-envelope-fill">  Enviar mensaje</i>
                             </button>
                         </div>
                     </form>
 
-                    <hr class="my-5">
-
-                    <div class="text-center">
-                        <p class="mb-3">También puedes contactarme en:</p>
-                        <div class="d-flex justify-content-center gap-4 flex-wrap">
-                            <a href="mailto:berlad46@gmail.com" class="btn btn-outline-secondary">
-                                ✉️ Email
-                            </a>
-                            <a href="https://www.linkedin.com/in/berladgonzalez/" target="_blank" class="btn btn-outline-primary">
-                                🔗 LinkedIn
-                            </a>
-                            <a href="https://github.com/bego46" target="_blank" class="btn btn-outline-dark">
-                                💻 GitHub
-                            </a>
-                            <a href="https://wa.me/573132066372" target="_blank" class="btn btn-outline-success">
-                                📱 WhatsApp
-                            </a>
-                        </div>
-                    </div>
 
                 </div>
             </div>

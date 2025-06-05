@@ -22,25 +22,17 @@ without express permission.
 
 
 from pathlib import Path
-from dotenv import load_dotenv
-from decouple import config, Csv
-import os
+from decouple import config
+import os, dj_database_url
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = config('DJANGO_SECRET_KEY')
-# SECRET_KEY = '=xy5v(vi0$3xv)1bm1r5g0)r!3g1bgz&kybm%*8^v*xbfx-@n6'
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = ['*', 'https://97b8-190-131-251-249.ngrok-free.app', '97b8-190-131-251-249.ngrok-free.app']
+DEBUG = False
+ALLOWED_HOSTS = ['localhost','127.0.0.1']
+# ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='localhost').split(',')
+# CSRF_TRUSTED_ORIGINS = config('CSRF_TRUSTED_ORIGINS', default='').split(',')
 
 
 # Application definition
@@ -87,18 +79,25 @@ WSGI_APPLICATION = 'portafolio.wsgi.application'
 
 
 # Database
-# https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+# Configuración local (cuando usas localhost)
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'mi-portafolio',
+        'USER': config('USER_SQL'),
+        'PASSWORD': config('PASSWORD_SQL'),
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
+# Si existe `DATABASE_URL`, Django usará la conexión de Render
+DATABASE_URL = os.getenv('DATABASE_URL')
+if DATABASE_URL:
+    DATABASES['default'] = dj_database_url.config(default=DATABASE_URL)
 
 # Password validation
-# https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -117,7 +116,6 @@ AUTH_PASSWORD_VALIDATORS = [
 
 
 # Internationalization
-# https://docs.djangoproject.com/en/5.1/topics/i18n/
 
 LANGUAGE_CODE = 'es-co'
 
@@ -127,47 +125,34 @@ USE_TZ = True
 
 USE_I18N = True
 
-USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'web/static')]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+
 # Default primary key field type
-# https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Seguridad de Cookies
 
-SESSION_COOKIE_SECURE = True        # Solo por HTTPS
 CSRF_COOKIE_SECURE = True           # Solo por HTTPS
+SESSION_COOKIE_SECURE = True        # Solo por HTTPS
 SESSION_COOKIE_HTTPONLY = True      # No accesible desde JS
-
-CSRF_TRUSTED_ORIGINS = [
-    'https://97b8-190-131-251-249.ngrok-free.app'
-]
+SECURE_SSL_REDIRECT = False
 
 # Seguridad del navegador
 
 SECURE_BROWSER_XSS_FILTER = True         # Protección XSS
 SECURE_CONTENT_TYPE_NOSNIFF = True       # Evita que el navegador adivine el tipo de contenido
 X_FRAME_OPTIONS = 'DENY'                 # Evita que tu web se cargue en un iframe
-
-
-
-# INSTALLED_APPS += ['csp']
-
-# CSP_DEFAULT_SRC = ("'self'",)
-# CSP_SCRIPT_SRC = ("'self'", 'cdn.jsdelivr.net', 'cdnjs.cloudflare.com')
-# CSP_STYLE_SRC = ("'self'", "'unsafe-inline'", 'fonts.googleapis.com')
-# CSP_FONT_SRC = ("'self'", 'fonts.gstatic.com')
 
 # Email
 

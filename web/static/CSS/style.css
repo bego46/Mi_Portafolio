@@ -83,4 +83,7 @@ footer {
     box-shadow: 0 0 15px var(--neon-pink);
 }
 
+.form-control::placeholder {
+    color: white;
+}
 
