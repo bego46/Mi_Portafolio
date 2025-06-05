@@ -1,0 +1,89 @@
+/*
+------------------------------------------------------------------------------
+Autor: Berlad Gonzalez Valenzuela para Developments Berlad (<DB/>)
+Proyecto: Portafolio personal de desarrollo web.
+Archivo: style.css
+Fecha de inserción: 2025-05-17
+
+Este archivo es parte del repositorio oficial de Developments Berlad y está
+protegido por derechos de autor. No está permitida su copia, modificación
+ni redistribución sin autorización expresa.
+
+This file is part of the official Developments Berlad repository.
+It is protected by copyright and may not be copied, modified, or distributed
+without express permission.
+
+ℹ️ Para más información, consulte el archivo README (disponible en varios idiomas).
+ℹ️ For more information, see the README file (available in multiple languages).
+------------------------------------------------------------------------------
+
+*/
+/* 🏗️ Base Styles */
+body {
+    color: #ffffff;
+    font-family: Arial, 'Segoe UI', sans-serif;
+    background-color: var(--dark-bg);
+}
+
+/* 🚀 Navbar */
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.nav-link {
+    color: #ccc !important;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #0ff !important;
+}
+
+/* 📦 Secciones */
+section {
+    margin-top: 2rem;
+}
+
+/* 🦶 Footer */
+footer {
+    background-color: #111;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.pie_pagina {
+    color: white !important;
+}
+
+/* 🔄 Barra de Progreso */
+.progress {
+    background-color: var(--darker-bg);
+    border-radius: 4px;
+}
+
+.progress-bar {
+    background-color: var(--neon-blue);
+}
+
+.card-placeholder {
+    background: rgba(0, 0, 0, 0.6);
+    border: 2px dashed var(--neon-blue);
+    padding: 20px;
+    text-align: center;
+    color: white;
+}
+
+.btn-filtrar:hover {
+    transform: scale(1.05) rotate(0.5deg);
+}
+
+.certificados-container {
+    border: 2px solid var(--neon-pink);
+    padding: 20px;
+    box-shadow: 0 0 15px var(--neon-pink);
+}
+
+.form-control::placeholder {
+    color: white;
+}
+
